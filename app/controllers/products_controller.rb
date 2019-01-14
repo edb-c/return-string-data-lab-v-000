@@ -13,11 +13,17 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
-  def inventory
-    product = Product.find(params[:id])
-    render plain: product.inventory > 0 ? true : false
-  end
-
+def inventory 
+        product = Product.find(params[:id])
+#       product.inventory > 0 ? true : false 
+       if product
+         "true"
+        else 
+          "false"
+        end  
+      render plain: product.inventory 
+  end 
+  
   def description
     product = Product.find(params[:id])
     render plain: product.description
